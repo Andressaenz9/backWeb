@@ -1,0 +1,34 @@
+-------------------------------------------------------------------------------
+Test set: com.finca.arriendo.JwtAuthenticationFilterTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.309 s <<< FAILURE! -- in com.finca.arriendo.JwtAuthenticationFilterTest
+com.finca.arriendo.JwtAuthenticationFilterTest.testDoFilterInternal_InvalidToken -- Time elapsed: 0.301 s <<< ERROR!
+com.finca.arriendo.security.UserTokenService$TokenValidationException: ERROR: Token inválido o expirado
+	at com.finca.arriendo.security.UserTokenService.parseToken(UserTokenService.java:61)
+	at com.finca.arriendo.JwtAuthenticationFilterTest.testDoFilterInternal_InvalidToken(JwtAuthenticationFilterTest.java:80)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+Caused by: io.jsonwebtoken.security.SignatureException: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted.
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:399)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:529)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws(DefaultJwtParser.java:589)
+	at io.jsonwebtoken.impl.ImmutableJwtParser.parseClaimsJws(ImmutableJwtParser.java:173)
+	at com.finca.arriendo.security.UserTokenService.parseToken(UserTokenService.java:54)
+	... 4 more
+
+com.finca.arriendo.JwtAuthenticationFilterTest.testDoFilterInternal_ValidToken -- Time elapsed: 0.005 s <<< ERROR!
+com.finca.arriendo.security.UserTokenService$TokenValidationException: ERROR: Token inválido o expirado
+	at com.finca.arriendo.security.UserTokenService.parseToken(UserTokenService.java:61)
+	at com.finca.arriendo.JwtAuthenticationFilterTest.testDoFilterInternal_ValidToken(JwtAuthenticationFilterTest.java:57)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+Caused by: io.jsonwebtoken.MalformedJwtException: JWT strings must contain exactly 2 period characters. Found: 0
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:275)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:529)
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseClaimsJws(DefaultJwtParser.java:589)
+	at io.jsonwebtoken.impl.ImmutableJwtParser.parseClaimsJws(ImmutableJwtParser.java:173)
+	at com.finca.arriendo.security.UserTokenService.parseToken(UserTokenService.java:54)
+	... 4 more
+
